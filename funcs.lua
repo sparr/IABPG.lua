@@ -3,11 +3,17 @@ function exit_func()
     os.exit()
 end
 
-function draw_unit(u)
+function draw_unit(u, invert_color)
+    if color and invert_color then
+        puzzle_window:attron(curses.color_pair(1))
+    end
     puzzle_window:mvaddch(
         u.values[YPOS]+math.floor(gdata.values[MIDY]),
         u.values[XPOS]+math.floor(gdata.values[MIDX]),
         icon_to_character[u.icon])
+    if color and invert_color then
+        puzzle_window:attroff(curses.color_pair(1))
+    end
 end
 
 function draw_titles()
@@ -30,19 +36,19 @@ function draw()
     -- draw targets
     for i,u in ipairs(units) do
         if u.pushtype ~= nil and u.pushtype == -1 then
-            draw_unit(u)
+            draw_unit(u, true)
         end
     end
     -- draw blocks
     for i,u in ipairs(units) do
         if u.pushtype ~= nil and u.pushtype >= 0 then
-            draw_unit(u)
+            draw_unit(u, findtarget(u.values[XPOS], u.values[YPOS]))
         end
     end
     -- draw player
     for i,u in ipairs(units) do
         if u.player ~= nil and u.player then
-            draw_unit(u)
+            draw_unit(u, findtarget(u.values[XPOS], u.values[YPOS]))
         end
     end
     -- actually put it all on the screen
