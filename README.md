@@ -6,7 +6,9 @@ Alternative client for [IT'S A BLOCK-PUSHING GAME](https://hempuli.itch.io/its-a
 
 ## Installing
 
-In addition to cloning this repo, you also need a copy of [IABPG.zip](https://hempuli.itch.io/its-a-block-pushing-game), and to unzip it in the same directory.
+1. clone this repo
+2. Download a copy of [IABPG.zip](https://hempuli.itch.io/its-a-block-pushing-game), and unzip it in the same directory
+3. (optional) `luarocks install --only-deps iabpg.lua-1.0-1.rockspec` to install curses and argparse
 
 ## Playing
 
