@@ -18,9 +18,9 @@ end
 
 function draw_titles()
     text_window:clear()
-    text_window:mvaddstr(0, 0, title_1)
-    text_window:mvaddstr(1, 0, title_2)
-    text_window:mvaddstr(2, 0, title_3)
+    text_window:addstr(title_1 .. "\n\n")
+    text_window:addstr(title_2 .. "\n\n")
+    text_window:addstr(title_3)
     text_window:refresh()
 end
 
