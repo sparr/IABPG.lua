@@ -11,12 +11,6 @@ require("Data.units")
 -- implement compatibility with original game scripts
 require("shim")
 
--- globals for the shim functions to pass information to the game script
-wintype = nil
-title_1 = ""
-title_2 = ""
-title_3 = ""
-
 -- set up the console interface
 curses = require "curses"
 stdscr = curses.initscr()
