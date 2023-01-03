@@ -8,6 +8,11 @@ require("Data.movement")
 require("Data.undo")
 require("Data.units")
 
+local argparse = require "argparse"
+local parser = argparse("IABPG.lua", "Alternate interface for It's A Block Pushing Game.")
+parser:flag("-w --wide", "Wide mode (space between puzzle tiles/blocks)", false)
+args = parser:parse()
+
 -- implement compatibility with original game scripts
 require("shim")
 
@@ -15,7 +20,7 @@ require("shim")
 curses = require "curses"
 stdscr = curses.initscr()
 main_screenh, main_screenw = stdscr:getmaxyx()
-screenh, screenw = main_screenh, 20
+screenh, screenw = main_screenh, (args.wide and 40 or 20)
 puzzle_window = curses.newwin(screenh, screenw, 0, 0)
 text_window = curses.newwin(screenh, main_screenw-screenw, 0, screenw)
 color = curses.has_colors()

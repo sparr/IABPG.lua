@@ -9,7 +9,7 @@ function draw_unit(u, invert_color)
     end
     puzzle_window:mvaddch(
         u.values[YPOS]+math.floor(gdata.values[MIDY]),
-        u.values[XPOS]+math.floor(gdata.values[MIDX]),
+        u.values[XPOS] * (args.wide and 2 or 1) + math.floor(gdata.values[MIDX]),
         icon_to_character[u.icon])
     if color and invert_color then
         puzzle_window:attroff(curses.color_pair(1))

@@ -37,5 +37,6 @@ build = {
 
 dependencies = {
    "lua >= 5.1",
+   "argparse",
    "lcurses",
 }
