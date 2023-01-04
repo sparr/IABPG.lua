@@ -12,9 +12,10 @@ local has_argparse, argparse = pcall(require,"argparse")
 if has_argparse then
     local parser = argparse("IABPG.lua", "Alternate interface for It's A Block Pushing Game.")
     parser:flag("-w --wide", "Wide mode (space between puzzle tiles/blocks)", false)
+    parser:flag("-t --tiles", "Draw empty tiles as dots instead of spaces", false)
     args = parser:parse()
 else
-    args = { wide = false }
+    args = { wide = false, tiles = false }
 end
 
 -- implement compatibility with original game scripts

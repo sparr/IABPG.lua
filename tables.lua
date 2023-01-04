@@ -53,7 +53,7 @@ icon_to_character = {
     W     = string.byte('='), -- wall
     B     = string.byte('@'), -- box
     P     = string.byte('-'), -- test
-    ['!'] = string.byte('.'), -- tile
+    ['!'] = string.byte(args.tiles and '.' or ' '), -- tile
     b     = string.byte('%'), -- box_multi
 }
 
