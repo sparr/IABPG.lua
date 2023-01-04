@@ -48,13 +48,13 @@ else
 end
 
 icon_to_character = {
-    p     = string.byte('P'), -- player
-    T     = string.byte('+'), -- target
-    W     = string.byte('='), -- wall
-    B     = string.byte('@'), -- box
-    P     = string.byte('-'), -- test
-    ['!'] = string.byte(args.tiles and '.' or ' '), -- tile
-    b     = string.byte('%'), -- box_multi
+    p     = 'P', -- player
+    T     = '+', -- target
+    W     = '=', -- wall
+    B     = '@', -- box
+    P     = '-', -- test
+    ['!'] = args.tiles and '.' or ' ', -- tile
+    b     = '%', -- box_multi
 }
 
 input_key_funcs = {

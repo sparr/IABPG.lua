@@ -17,12 +17,12 @@ function draw_unit(u, invert_color)
         puzzle_window:mvaddch(
             u.values[YPOS]+math.floor(gdata.values[MIDY]),
             u.values[XPOS] * (args.wide and 2 or 1) + math.floor(gdata.values[MIDX]),
-            icon_to_character[u.icon])
+            string.byte(icon_to_character[u.icon]))
         if color and invert_color then
             puzzle_window:attroff(curses.color_pair(1))
         end
     else
-        units_display[u.values[YPOS]][u.values[XPOS]] = string.char(icon_to_character[u.icon])
+        units_display[u.values[YPOS]][u.values[XPOS]] = icon_to_character[u.icon]
     end
 end
 
